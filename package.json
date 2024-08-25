@@ -2,14 +2,22 @@
   "name": "@react-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve-host": "pnpm nx serve host",
+    "serve-app1": "pnpm nx serve app1",
+    "build": "pnpm nx build host"
+  },
   "private": true,
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-router-dom": "6.11.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@module-federation/enhanced": "~0.2.3",
     "@nx/cypress": "19.6.2",
     "@nx/devkit": "19.6.2",
     "@nx/eslint": "19.6.2",
@@ -20,8 +28,11 @@
     "@nx/react": "19.6.2",
     "@nx/vite": "19.6.2",
     "@nx/web": "19.6.2",
+    "@nx/webpack": "19.6.2",
     "@nx/workspace": "19.6.2",
     "@playwright/test": "^1.36.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "@svgr/webpack": "^8.0.1",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
@@ -48,6 +59,7 @@
     "jsdom": "~22.1.0",
     "nx": "19.6.2",
     "prettier": "^2.6.2",
+    "react-refresh": "^0.10.0",
     "sass": "^1.55.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",

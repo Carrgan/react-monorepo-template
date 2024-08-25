@@ -2,33 +2,48 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+An monorepo micro front-end proj template.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Build by React, micro front by federate-model, package management by pnpm and nx.dev
 
-## Finish your CI setup
+## Start
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/0GKaojlu9O)
+If you don't have pnpm:
 
+```sh
+npm install -g pnpm
+```
+
+Install dependence:
+
+```sh
+pnpm install
+```
 
 ## Run tasks
 
 To run the dev server for your app, use:
 
 ```sh
-npx nx serve react-monorepo
+pnpm nx serve host
+```
+
+To show project dependence:
+
+```sh
+pnpm nx graph
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build react-monorepo
+pnpm nx build host
 ```
 
 To see all available targets to run for a project, run:
 
 ```sh
-npx nx show project react-monorepo
+npx nx show project host
 ```
         
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
@@ -51,6 +66,31 @@ To generate a new library, use:
 
 ```sh
 npx nx g @nx/react:lib mylib
+```
+
+To enable live load for remote app, go to host project `project.json`
+
+```json
+"serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "host:build",
+        "hmr": false,
+        "liveReload": true,
+        "port": 3000,
+        "devRemotes": ["shop"] // Add your remote app
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "host:build:development"
+        },
+        "production": {
+          "buildTarget": "host:build:production",
+          "hmr": false
+        }
+      }
+    }
 ```
 
 You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.

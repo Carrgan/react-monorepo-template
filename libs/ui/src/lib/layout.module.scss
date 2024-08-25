@@ -1,0 +1,35 @@
+@import "global";
+
+.content {
+}
+
+.icon {
+  padding-left: 8px;
+}
+
+.nav-list {
+}
+
+.nav {
+  height: var(--main-nav-height);
+  background: #111926;
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  height: calc(100% - var(--main-nav-height));
+  display: flex;
+}
+
+.mainContent {
+  height: 100%;
+  width: calc(100% - var(--main-sider-bar-with));
+}
+
+.sideBar {
+  width: var(--main-sider-bar-with);
+  height: 100%;
+  background: var(--main-color);
+  border-right: #444950 1px solid;
+}

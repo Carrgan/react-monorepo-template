@@ -1,0 +1,18 @@
+:root {
+  --main-nav-height: 50px;
+  --main-sider-bar-with: 300px;
+  --main-color: #1b1b1d;
+}
+
+html {
+  height: 100%;
+}
+body {
+  color: #f1f1f1;
+  height: 100%;
+  margin: 0;
+  background: var(--main-color);
+}
+#root {
+  height: 100%;
+}
